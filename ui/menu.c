@@ -1055,6 +1055,10 @@ void UI_PopulateScanListView(char *String,int32_t gSubMenuSelection,uint8_t menu
 	}
 
 	//Use SETTINGS_FetchChannelFrequency() here (might need to convert to MHz?) to put the freq into the list with UI_PrintStringSmallNormal 
+	//Something like the following:
+	//uint32_t frequency = SETTINGS_FetchChannelFrequency(gSubMenuSelection);
+	//sprintf(String, "%u.%05u", frequency / 100000, frequency % 100000);
+	//UI_PrintStringSmallNormal(String, menu_item_x1, menu_item_x2, 5, 8);
 	
 	UI_GetScanListInfoForChannel(false);
 }
