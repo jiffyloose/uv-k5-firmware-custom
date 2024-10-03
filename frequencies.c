@@ -192,7 +192,29 @@ int32_t TX_freq_check(const uint32_t Frequency)
 				return 0;
 			if (Frequency >= 42000000 && Frequency < 45000000)
 				return 0;
-			break;
+		break;
+
+		case F_LOCK_FCC_GMRS:
+            // https://forums.radioreference.com/threads/the-great-unofficial-radioreference-frs-gmrs-murs-fact-sheet.275370/
+            if ((Frequency >= 46255000 && Frequency <= 46272500) ||
+                (Frequency >= 46755000 && Frequency <= 46772500)) // FRS/GMRS
+                return 0;
+
+			if (Frequency >= 14400000 && Frequency < 14800000)
+				return 0;
+			if (Frequency >= 42000000 && Frequency < 45000000)
+				return 0;
+		break;
+
+		case F_LOCK_GMRS:
+            // https://forums.radioreference.com/threads/the-great-unofficial-radioreference-frs-gmrs-murs-fact-sheet.275370/
+            if ((Frequency >= 46255000 && Frequency <= 46272500) ||
+                (Frequency >= 46755000 && Frequency <= 46772500)) // FRS/GMRS
+                return 0;
+        break;
+
+
+
 
 		case F_LOCK_CE:
 			if (Frequency >= 14400000 && Frequency < 14600000)
